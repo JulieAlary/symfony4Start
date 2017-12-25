@@ -66,7 +66,7 @@ yarn add bootstrap
 yarn run encore dev
 ~~~
 
-##Doctrine
+## Doctrine
 ~~~
 composer require form
 composer require translation

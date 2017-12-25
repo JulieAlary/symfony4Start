@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{# take a look to personalize & configure
+    https://symfony.com/doc/current/reference/configuration/security.html#form-login-configuration
+    https://symfony.com/doc/current/security/form_login.html
+
+#}
+
+{% block stylesheets %}{{ parent() }}{% endblock %}
+
+{% block body %}
+
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    <form action="{{ path('login') }}" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="_username" value="{{ last_username }}" />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="_password" />
+
+        {# protection again csrf attack see the config on security & framework yaml #}
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" />
+
+
+        <button type="submit">login</button>
+    </form>
+
+{% endblock %}
+
+{% block javascript %}{{ parent() }}{% endblock %}
