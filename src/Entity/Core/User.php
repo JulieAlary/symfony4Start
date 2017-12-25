@@ -92,6 +92,13 @@ class User implements UserInterface, \Serializable
 	private $email;
 
 	/**
+	 * @var array
+	 *
+	 * @ORM\Column(type="json")
+	 */
+	private $roles = [];
+
+	/**
 	 * @return mixed
 	 */
 	public function getId() {
@@ -179,7 +186,19 @@ class User implements UserInterface, \Serializable
 
 	public function getRoles()
 	{
-		return array('ROLE_USER');
+		$roles = $this->roles;
+
+		// guarantees that a user always has at least one role for security
+		if (empty($roles)) {
+			$roles[] = 'ROLE_USER';
+		}
+
+		return array_unique($roles);
+	}
+
+	public function setRoles(array $roles): void
+	{
+		$this->roles = $roles;
 	}
 
 	public function eraseCredentials()
