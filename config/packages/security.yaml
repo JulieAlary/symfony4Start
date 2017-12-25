@@ -8,8 +8,8 @@ security:
                 #property: username
 
     encoders:
-        App\Entity\Core\User:
-            algorithm: bcrypt
+        App\Entity\Core\User: bcrypt
+            #algorithm:
 
     firewalls:
         dev:

@@ -6,10 +6,20 @@ use App\Entity\Core\User;
 use App\Form\Core\UserType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Response;
+
 
 class RegistrationController extends Controller
 {
+	/**
+	 * @param Request $request
+	 * @param UserPasswordEncoderInterface $passwordEncoder
+	 * @return RedirectResponse|Response
+	 * @Route("/register", name="user_registration")
+	 */
 	public function registerAction(Request $request, UserPasswordEncoderInterface $passwordEncoder)
 	{
 		// The Form

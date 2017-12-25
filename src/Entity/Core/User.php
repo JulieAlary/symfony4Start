@@ -29,6 +29,13 @@ class User implements UserInterface, \Serializable
 	private $username;
 
 	/**
+	 * @param mixed $username
+	 */
+	public function setUsername( $username ): void {
+		$this->username = $username;
+	}
+
+	/**
 	 * @ORM\Column(type="string", length=25)
 	 * @Assert\NotBlank()
 	 */
