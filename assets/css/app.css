@@ -1,0 +1,6 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+.test-css {
+    color:green;
+    background-image: url('../images/chat.jpg');
+}
