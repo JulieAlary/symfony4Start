@@ -43,6 +43,7 @@ yarn run encore dev
 
 ##Doctrine
 ~~~
+composer require form
 composer require translation
 composer require doctrine maker
 ---

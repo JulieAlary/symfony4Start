@@ -2,10 +2,10 @@ security:
     # https://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
         in_memory: { memory: ~ }
-        our_db_provider:
-            entity:
-                class: App\Entity\Core\User
-                property: username
+        #our_db_provider:
+            #entity:
+               # class: App\Entity\Core\User
+                #property: username
 
     encoders:
         App\Entity\Core\User:
