@@ -43,6 +43,7 @@ yarn run encore dev
 
 ##Doctrine
 ~~~
+composer require translation
 composer require doctrine maker
 ---
 composer require --dev doctrine/doctrine-fixtures-bundle
@@ -57,19 +58,19 @@ php bin/console doctrine:fixtures:load
 ---
 composer require doctrine/doctrine-migrations-bundle "^1.0"
 ---
-php app/console doctrine:schema:update --force
+php bin/console doctrine:schema:update --force
+---
+composer require security
+---
+composer require doctrine form security validator
+___
+php bin/console make:entity EntityName
 ~~~
 _Make a request in console_
 ~~~
 php bin/console doctrine:query:sql 'SELECT * FROM product'
 ~~~
 
-
-##FOSUserBundle
-
-~~~
-composer require friendsofsymfony/user-bundle "~1.3"
-~~~
 
 
 **Controller**
