@@ -6,6 +6,9 @@ Encore
 
     // Will output as public/build/app.js
     .addEntry('app', './assets/js/app.js')
+    .addEntry('global', './assets/css/custom.css')
+
+    .autoProvidejQuery()
 
     .enableSourceMaps(!Encore.isProduction())
 

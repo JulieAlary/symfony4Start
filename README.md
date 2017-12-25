@@ -1,6 +1,6 @@
 # A symfony4 base project
 
-####STEP1:
+###STEP1:
 
 **Create**
 ~~~
