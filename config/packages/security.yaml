@@ -1,5 +1,4 @@
 security:
-    # https://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
         #in_memory: { memory: ~ }
         our_db_provider:
@@ -8,8 +7,9 @@ security:
                 property: username
 
     encoders:
+        # for registration
         App\Entity\Core\User: bcrypt
-            #algorithm:
+        # for login
         Symfony\Component\Security\Core\User\User:
             algorithm: bcrypt
             cost:      15
@@ -20,26 +20,36 @@ security:
             security: false
         main:
             anonymous: ~
-            #pattern: ^/
-            http_basic: ~ # to have a confirm log alert
+            http_basic: ~ # to have the confirm login message alert
             provider: our_db_provider
 
             form_login:
                 login_path: login
                 check_path: login
 
-        # https://symfony.com/doc/current/cookbook/security/form_login_setup.html
         secured_area:
             form_login:
                 csrf_token_generator: security.csrf.token_manager
+            #logout:
+                #path: /logout
+                #target: /
 
-            # activate different ways to authenticate
+    # activate different ways to authenticate
+
+    role_hierachy:
+        ROLE_ADMIN: ROLE_USER
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
     access_control:
             #require ROLE_ADMIN for /admin*
             - { path: ^/admin, roles: ROLE_ADMIN }
+            - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
 
-            # http_basic: ~
-            # https://symfony.com/doc/current/book/security.html#a-configuring-how-your-users-will-authenticate
+
+#### DOCUMENTATION ###
+ # https://symfony.com/doc/current/cookbook/security/form_login_setup.html
+ # https://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
+# https://symfony.com/doc/current/book/security.html#a-configuring-how-your-users-will-authenticate
 
 
 
