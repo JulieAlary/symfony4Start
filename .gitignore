@@ -8,4 +8,6 @@
 assets/images/
 node_modules/
 src/Migrations/
+.DS_Store
+assets/.DS_Store
 ###< symfony/framework-bundle ###

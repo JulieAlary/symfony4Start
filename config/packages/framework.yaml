@@ -3,6 +3,8 @@ framework:
     default_locale: fr
     csrf_protection: { enabled: true }
     #http_method_override: true
+    templating:
+        engines: ['twig']
 
     session:
         # With this config, PHP's native session handling is used

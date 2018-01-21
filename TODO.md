@@ -97,8 +97,15 @@ _Make a request in console_
 php bin/console doctrine:query:sql 'SELECT * FROM product'
 ~~~
 
-
-
+## SwiftMailer
+~~~
+composer require mailer
+~~~
+## Templating engine
+(ex : If you want to use in mail service)
+~~~
+composer require symfony/templating
+~~~
 ## Controller
 ~~~
 php bin/console make:controller NameController

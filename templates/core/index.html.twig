@@ -10,8 +10,8 @@
 <h2 class="test-css"></h2>
     <p class="paragraphe">Un paragraphe</p>
 
+    <a href="{{ path('core_registration') }}">Mail</a>
+
 {% endblock %}
 
-{% block javascript %}
-{{ parent() }}
-{% endblock %}
+{% block javascript %}{{ parent() }}{% endblock %}

@@ -4,6 +4,7 @@ namespace App\Controller\Core;
 
 use App\Entity\Core\User;
 use App\Form\Core\UserType;
+use App\Service\MailManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,13 +15,15 @@ use Symfony\Component\HttpFoundation\Response;
 
 class RegistrationController extends Controller
 {
-	/**
-	 * @param Request $request
-	 * @param UserPasswordEncoderInterface $passwordEncoder
-	 * @return RedirectResponse|Response
-	 * @Route("/register", name="user_registration")
-	 */
-	public function registerAction(Request $request, UserPasswordEncoderInterface $passwordEncoder)
+    /**
+     * @param Request $request
+     * @param UserPasswordEncoderInterface $passwordEncoder
+     * @param MailManager $mailManager
+     * @return RedirectResponse|Response
+     *
+     * @Route("/register", name="core_registration")
+     */
+	public function registerAction(Request $request, UserPasswordEncoderInterface $passwordEncoder, MailManager $mailManager)
 	{
 		// The Form
 		$user = new User();
@@ -38,7 +41,10 @@ class RegistrationController extends Controller
 			$em->persist($user);
 			$em->flush();
 
-			// TODO implements flashMessage & sendMail
+			/* Send Mail */
+			$mailManager->sendUserRegistrationEmail($user);
+
+			// TODO implements flashMessage
 			return $this->redirectToRoute('core_home');
 		}
 

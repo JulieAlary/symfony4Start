@@ -2,6 +2,8 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'en'
+    mail_from: 'julie.alary@gmail.com'
+    mail_from_nom: 'julie'
 
 services:
     # default configuration for services in *this* file
@@ -26,3 +28,7 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    App\Service\MailManager:
+        public: true
+        arguments: ["@mailer", "@templating", "%mail_from%", "%mail_from_nom%"]
