@@ -33,7 +33,8 @@ class MailManager
     {
 
         $body = $this->templating->render('core/emails/registration.html.twig', [
-            'username' => $user->getEmail()
+            'userMail' => $user->getEmail(),
+            'user' => $user
         ]);
 
         $message = (new \Swift_Message())

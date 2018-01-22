@@ -27,12 +27,13 @@ security:
                 login_path: login
                 check_path: login
 
+            logout:
+                path: /logout
+                target: /
+
         secured_area:
             form_login:
                 csrf_token_generator: security.csrf.token_manager
-            #logout:
-                #path: /logout
-                #target: /
 
     # activate different ways to authenticate
 

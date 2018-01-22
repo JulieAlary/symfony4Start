@@ -1,9 +1,7 @@
 <h3>You did it! You registered!</h3>
 
-Hi ! You're successfully registered.
+Hi {{ user.firstname }} {{ user.lastname }} ! You're successfully registered.
 
-To login, go to: <a href="{{ url('login') }}">...</a>.
+To login, go to: <a href="{{ url('login') }}">symfony4Start</a> & tip your username "{{ user.username }}" or Email address & your password.
 
 Thanks!
-
-{# Makes an absolute URL to the /images/logo.png file #}

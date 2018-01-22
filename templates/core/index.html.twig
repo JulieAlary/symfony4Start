@@ -8,10 +8,11 @@
 
 <h1>Hello world</h1>
 <h2 class="test-css"></h2>
-    <p class="paragraphe">Un paragraphe</p>
+    <p class="paragraphe">Un paragraphe (ex : css)</p>
 
-    <a href="{{ path('core_registration') }}">Mail</a>
-
+    <a href="{{ path('core_registration') }}">Registration</a>
+    <a href="{{ path('logout') }}">Logout</a>
+    <a href="{{ path('login') }}">Login</a>
 {% endblock %}
 
 {% block javascript %}{{ parent() }}{% endblock %}

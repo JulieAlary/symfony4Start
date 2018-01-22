@@ -21,6 +21,9 @@
         <label for="password">Password:</label>
         <input type="password" id="password" name="_password" />
 
+        {#<a href="{{ path('core_forgotten_password') }}" title="{{ 'Mot de passe oublié' }}" class="forget-password">{{ 'Mot de passe oublié' }}</a>#}
+
+
         {# protection again csrf attack see the config on security & framework yaml  for more information #}
         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" />
 
