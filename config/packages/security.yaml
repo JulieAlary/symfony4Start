@@ -31,6 +31,13 @@ security:
                 path: /logout
                 target: /
 
+            remember_me:
+                secret: '%kernel.secret%'
+                lifetime: 604800 # 1 week
+                path: /
+
+            switch_user: true
+
         secured_area:
             form_login:
                 csrf_token_generator: security.csrf.token_manager

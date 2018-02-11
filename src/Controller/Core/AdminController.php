@@ -9,6 +9,8 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminController extends Controller
 {
 	/**
+     * Exemple AdminController do nothing
+     *
 	 * @return Response
 	 * @Route("/admin")
 	 */

@@ -27,6 +27,8 @@ class MailManager
     }
 
     /**
+     * Send a Registration mail to the new user
+     *
      * @param User $user
      */
     public function sendUserRegistrationEmail(User $user)

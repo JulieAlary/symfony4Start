@@ -11,6 +11,8 @@ use Symfony\Component\HttpFoundation\Response;
 class SecurityController extends Controller
 {
     /**
+     * Login
+     *
      * @param Request $request
      * @param AuthenticationUtils $authUtils
      * @return Response

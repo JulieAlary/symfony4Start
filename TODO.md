@@ -110,3 +110,33 @@ composer require symfony/templating
 ~~~
 php bin/console make:controller NameController
 ~~~
+
+## CSRF protection
+~~~
+composer require security-csrf form
+~~~
+
+## To display the security notation
+~~~
+composer require expression-language
+~~~
+
+## Debugging Event Listener
+
+~~~
+php bin/console debug:event-dispatcher
+php bin/console debug:event-dispatcher kernel.exception
+~~~
+
+## Logger 
+~~~
+composer require logger
+~~~
+
+## Project Version
+
+~~~
+php bin/console about
+~~~
+
+
